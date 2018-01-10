@@ -1,15 +1,13 @@
 class UrlsController < ApplicationController
-
+  
   # GET /urls
   def index
     @urls = Url.all
-
-    render json: @urls
+    @contents = Content.all
   end
 
   # POST /urls
   def create
-    Url.create
     @url = Url.new(:url => params[:url])
 
     if @url.save
